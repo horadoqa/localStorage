@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #080b14;
+    --card: rgba(18, 24, 40, 0.78);
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #f4f7ff;
+    --text-secondary: #9ca8bd;
+    --primary: #7c5cff;
+    --primary-light: #9b82ff;
+    --success: #34d399;
+    --input: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(circle at 15% 20%,
+            rgba(124, 92, 255, 0.18),
+            transparent 30%),
+        radial-gradient(circle at 85% 80%,
+            rgba(52, 211, 153, 0.10),
+            transparent 30%),
+        var(--background);
+
+    flex-direction: column;
+}
+
+/* Card principal */
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+
+    background: rgba(124, 92, 255, 0.08);
+    filter: blur(100px);
+
+    pointer-events: none;
+
+
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+h1,
+p,
+input,
+button {
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    width: min(100%, 600px);
+
+    padding: 42px 42px 0;
+
+    margin: 0 auto;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+
+    background: linear-gradient(135deg,
+            #ffffff,
+            #b9adff);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+
+}
+
+
+body>p,
+body>input,
+body>button {
+    width: min(100%, 600px);
+}
+
+/* Primeiro parágrafo */
+
+body>p:first-of-type {
+    padding: 12px 42px 28px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.98rem;
+    line-height: 1.6;
+
+
+}
+
+/* Input */
+
+#meuInput {
+    width: min(100%, 516px);
+
+    margin: 0 auto;
+
+    padding: 16px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    outline: none;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+
+
+}
+
+#meuInput::placeholder {
+    color: #68748a;
+}
+
+#meuInput:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+#meuInput:focus {
+    border-color: var(--primary);
+
+    background: rgba(124, 92, 255, 0.07);
+
+    box-shadow:
+        0 0 0 4px rgba(124, 92, 255, 0.12),
+        0 8px 30px rgba(0, 0, 0, 0.25);
+
+    transform: translateY(-1px);
+
+
+}
+
+/* Botão */
+
+#salvarBtn {
+    width: min(100%, 516px);
+
+    margin: 14px auto 0;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    font-size: 0.98rem;
+    font-weight: 600;
+
+    background:
+        linear-gradient(135deg,
+            var(--primary),
+            #6246d9);
+
+    box-shadow:
+        0 8px 24px rgba(124, 92, 255, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+
+}
+
+#salvarBtn:hover {
+    transform: translateY(-2px);
+
+    filter: brightness(1.1);
+
+    box-shadow:
+        0 12px 30px rgba(124, 92, 255, 0.35);
+
+
+}
+
+#salvarBtn:active {
+    transform: translateY(0);
+
+    box-shadow:
+        0 5px 15px rgba(124, 92, 255, 0.25);
+
+
+}
+
+/* Área do resultado */
+
+body>p:last-of-type {
+    width: min(100%, 516px);
+
+    margin: 26px auto 0;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(52, 211, 153, 0.15);
+    border-radius: 12px;
+
+    background: rgba(52, 211, 153, 0.05);
+
+    color: var(--text-secondary);
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+
+    backdrop-filter: blur(10px);
+
+
+}
+
+#valorSalvo {
+    display: block;
+
+    margin-top: 8px;
+
+    color: var(--success);
+
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    word-break: break-word;
+
+
+}
+
+#apagarBtn {
+    width: min(100%, 516px);
+
+    margin: 14px auto 0;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: #ffffff;
+
+    font-size: 0.98rem;
+    font-weight: 600;
+
+    background:
+        linear-gradient(135deg,
+            #ff4d4f,
+            #d9363e);
+
+    box-shadow:
+        0 8px 24px rgba(255, 77, 79, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+#apagarBtn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow:
+        0 12px 30px rgba(255, 77, 79, 0.35);
+}
+
+#apagarBtn:active {
+    transform: translateY(0);
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    h1 {
+        padding: 30px 24px 0;
+
+        font-size: 2rem;
+    }
+
+    body>p:first-of-type {
+        padding: 10px 24px 24px;
+    }
+
+    #meuInput,
+    #salvarBtn,
+    body>p:last-of-type {
+        width: 100%;
+    }
+
+
+}
+
+
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
+
+footer {
+    margin-top: 24px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-align: center;
+}
